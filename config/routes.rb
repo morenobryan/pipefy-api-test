@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fields
   resources :phases
   resources :pipes
   resources :organizations
