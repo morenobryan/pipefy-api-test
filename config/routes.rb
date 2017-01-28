@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :field_values
   resources :cards
   resources :types
   resources :fields

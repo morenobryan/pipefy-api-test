@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128215952) do
+ActiveRecord::Schema.define(version: 20170128222133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 20170128215952) do
     t.integer  "current_phase_id"
     t.integer  "previous_phase_id"
     t.integer  "next_phase_id"
+  end
+
+  create_table "field_values", force: :cascade do |t|
+    t.integer  "field_id"
+    t.string   "value"
+    t.string   "display_value"
+    t.integer  "card_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["card_id"], name: "index_field_values_on_card_id", using: :btree
+    t.index ["field_id"], name: "index_field_values_on_field_id", using: :btree
   end
 
   create_table "fields", force: :cascade do |t|
@@ -85,6 +96,8 @@ ActiveRecord::Schema.define(version: 20170128215952) do
   add_foreign_key "cards", "phases", column: "current_phase_id"
   add_foreign_key "cards", "phases", column: "next_phase_id"
   add_foreign_key "cards", "phases", column: "previous_phase_id"
+  add_foreign_key "field_values", "cards"
+  add_foreign_key "field_values", "fields"
   add_foreign_key "fields", "phases"
   add_foreign_key "fields", "types"
   add_foreign_key "phases", "pipes"

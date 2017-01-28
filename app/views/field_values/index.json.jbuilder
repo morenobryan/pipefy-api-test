@@ -1,0 +1,1 @@
+json.array! @field_values, partial: 'field_values/field_value', as: :field_value
