@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128210706) do
+ActiveRecord::Schema.define(version: 20170128215952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "due_date"
+    t.float    "duration"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.datetime "expiration_time"
+    t.integer  "index"
+    t.string   "token"
+    t.boolean  "expired"
+    t.boolean  "late"
+    t.boolean  "draft"
+    t.boolean  "done"
+    t.boolean  "can_show_pipe"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "current_phase_id"
+    t.integer  "previous_phase_id"
+    t.integer  "next_phase_id"
+  end
 
   create_table "fields", force: :cascade do |t|
     t.integer  "phase_id"
@@ -61,6 +82,9 @@ ActiveRecord::Schema.define(version: 20170128210706) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cards", "phases", column: "current_phase_id"
+  add_foreign_key "cards", "phases", column: "next_phase_id"
+  add_foreign_key "cards", "phases", column: "previous_phase_id"
   add_foreign_key "fields", "phases"
   add_foreign_key "fields", "types"
   add_foreign_key "phases", "pipes"

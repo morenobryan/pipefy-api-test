@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @card.title %>
+</p>
+
+<p>
+  <strong>Current phase:</strong>
+  <%= @card.current_phase_id %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @card.due_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @card.duration %>
+</p>
+
+<p>
+  <strong>Started at:</strong>
+  <%= @card.started_at %>
+</p>
+
+<p>
+  <strong>Finished at:</strong>
+  <%= @card.finished_at %>
+</p>
+
+<p>
+  <strong>Expiration time:</strong>
+  <%= @card.expiration_time %>
+</p>
+
+<p>
+  <strong>Index:</strong>
+  <%= @card.index %>
+</p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @card.token %>
+</p>
+
+<p>
+  <strong>Expired:</strong>
+  <%= @card.expired %>
+</p>
+
+<p>
+  <strong>Late:</strong>
+  <%= @card.late %>
+</p>
+
+<p>
+  <strong>Draft:</strong>
+  <%= @card.draft %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @card.done %>
+</p>
+
+<p>
+  <strong>Can show pipe:</strong>
+  <%= @card.can_show_pipe %>
+</p>
+
+<p>
+  <strong>Previous phase:</strong>
+  <%= @card.previous_phase_id %>
+</p>
+
+<p>
+  <strong>Next phase:</strong>
+  <%= @card.next_phase_id %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

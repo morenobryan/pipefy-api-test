@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cards
   resources :types
   resources :fields
   resources :phases

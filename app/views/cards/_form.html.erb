@@ -1,0 +1,97 @@
+<%= form_for(card) do |f| %>
+  <% if card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul>
+      <% card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_phase_id_id %>
+    <%= f.text_field :current_phase_id_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :due_date %>
+    <%= f.datetime_select :due_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.text_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :started_at %>
+    <%= f.datetime_select :started_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :finished_at %>
+    <%= f.datetime_select :finished_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :expiration_time %>
+    <%= f.datetime_select :expiration_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :index %>
+    <%= f.number_field :index %>
+  </div>
+
+  <div class="field">
+    <%= f.label :token %>
+    <%= f.text_field :token %>
+  </div>
+
+  <div class="field">
+    <%= f.label :expired %>
+    <%= f.check_box :expired %>
+  </div>
+
+  <div class="field">
+    <%= f.label :late %>
+    <%= f.check_box :late %>
+  </div>
+
+  <div class="field">
+    <%= f.label :draft %>
+    <%= f.check_box :draft %>
+  </div>
+
+  <div class="field">
+    <%= f.label :done %>
+    <%= f.check_box :done %>
+  </div>
+
+  <div class="field">
+    <%= f.label :can_show_pipe %>
+    <%= f.check_box :can_show_pipe %>
+  </div>
+
+  <div class="field">
+    <%= f.label :previous_phase_id_id %>
+    <%= f.text_field :previous_phase_id_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :next_phase_id_id %>
+    <%= f.text_field :next_phase_id_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
