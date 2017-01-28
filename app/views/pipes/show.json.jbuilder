@@ -1,0 +1,1 @@
+json.partial! "pipes/pipe", pipe: @pipe
