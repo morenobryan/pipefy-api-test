@@ -10,15 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128202109) do
+ActiveRecord::Schema.define(version: 20170128210706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fields", force: :cascade do |t|
+    t.integer  "phase_id"
+    t.string   "label"
+    t.string   "default_value"
+    t.integer  "type_id"
+    t.integer  "index"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["phase_id"], name: "index_fields_on_phase_id", using: :btree
+    t.index ["type_id"], name: "index_fields_on_type_id", using: :btree
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "phases", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "pipe_id"
+    t.integer  "index"
+    t.boolean  "can_edit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pipe_id"], name: "index_phases_on_pipe_id", using: :btree
   end
 
   create_table "pipes", force: :cascade do |t|
@@ -31,5 +53,16 @@ ActiveRecord::Schema.define(version: 20170128202109) do
     t.index ["organization_id"], name: "index_pipes_on_organization_id", using: :btree
   end
 
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.text     "component"
+    t.string   "html_class"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "fields", "phases"
+  add_foreign_key "fields", "types"
+  add_foreign_key "phases", "pipes"
   add_foreign_key "pipes", "organizations"
 end
