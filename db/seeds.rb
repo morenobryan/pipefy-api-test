@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Organization.create(
+  id: Organization::ORGANIZATION_ID,
+  name: 'Pipefy Recruiting Exercises Source'
+)
