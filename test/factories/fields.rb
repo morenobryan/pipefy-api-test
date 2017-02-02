@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :field do
-    phase nil
-    label "MyString"
-    default_value "MyString"
-    type nil
+    phase
+    label 'First field'
+    default_value 'default'
+    type
     index 1
   end
 end

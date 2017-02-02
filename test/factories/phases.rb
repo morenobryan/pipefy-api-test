@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :phase do
-    name "MyString"
-    pipe nil
+    name 'First Phase'
+    pipe
     index 1
     can_edit false
   end

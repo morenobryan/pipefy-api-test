@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :field_value do
-    field nil
-    value "MyString"
-    display_value "MyString"
-    card nil
+    field
+    value 'First value'
+    display_value 'First value'
+    card
   end
 end
