@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :organization do
-    name Faker::Company.name
+    name 'Pipefy'
   end
 end
