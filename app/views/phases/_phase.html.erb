@@ -1,0 +1,12 @@
+<h3>Phase: <%= phase.name %></h3>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Card Title</th>
+    <th>Due date</th>
+    <%= render phase.fields %>
+    <th>Done</th>
+  </tr>
+
+  <%= render phase.cards, phase: phase %>
+</table>

@@ -1,0 +1,6 @@
+<tr>
+  <td><%= card.title %></td>
+  <td><%= card.due_date %></td>
+  <%= render partial: 'field_values/field_value', collection: phase.fields, as: :field, locals: { card: card } %>
+  <td><%= card.done %></td>
+</tr>
