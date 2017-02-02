@@ -1,1 +1,0 @@
-json.array! @pipes, partial: 'pipes/pipe', as: :pipe

@@ -1,2 +1,0 @@
-json.extract! card, :id, :title, :current_phase_id_id, :due_date, :duration, :started_at, :finished_at, :expiration_time, :index, :token, :expired, :late, :draft, :done, :can_show_pipe, :previous_phase_id_id, :next_phase_id_id, :created_at, :updated_at
-json.url card_url(card, format: :json)
