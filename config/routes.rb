@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :field_values
-  resources :cards
-  resources :types
-  resources :fields
-  resources :phases
-  resources :pipes
-  resources :organizations
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'pipefy-fetch-data', to: 'pipefy_api#fetch_data', as: 'pipefy_fetch_data'
 end
